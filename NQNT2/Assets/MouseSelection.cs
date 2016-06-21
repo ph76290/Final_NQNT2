@@ -13,7 +13,12 @@ public class MouseSelection : MonoBehaviour {
 	private static bool selecting;
 	private float raycastLength = 500f;
 
-	void Awake ()
+    public GameObject CurrentlySelected
+    {
+        get { return currentlySelected; }
+    }
+
+    void Awake ()
 	{
 		mouseDownPoint = Vector3.zero;
 	}
@@ -21,13 +26,13 @@ public class MouseSelection : MonoBehaviour {
     {
         if (b)
         {
-            GUI.Box(new Rect(1800, 50, 90, 20), "Health :" + enemyhealth);
+            //GUI.Box(new Rect(1800, 50, 90, 20), "Health :" + enemyhealth);
         }
         
     }
     void Start()
     {
-        enemyhealth = currentlySelected.GetComponent<enemyHealth>().health;
+        enemyhealth = currentlySelected.GetComponent<enemyHealth>().Health;
     }
 	void Update()
 	{
@@ -70,7 +75,8 @@ public class MouseSelection : MonoBehaviour {
 					selecting = true;
 				    currentlySelected = hit.collider.gameObject;
                     enemyHealthScript = currentlySelected.GetComponent<enemyHealth>();
-                    enemyhealth = enemyHealthScript.health;
+                    enemyhealth = enemyHealthScript.Health;
+                    Debug.Log(enemyhealth);
 
                 }
 
@@ -148,7 +154,7 @@ public class MouseSelection : MonoBehaviour {
 		else
 			return false;
 	}
-
+    /*
 	public static void DeselectGameobjectIfSelected()
 	{
 		if (currentlySelected != null) 
@@ -157,5 +163,5 @@ public class MouseSelection : MonoBehaviour {
 			selecting = false;
 			currentlySelected = null;
 		}
-	}
+	}*/
 }
