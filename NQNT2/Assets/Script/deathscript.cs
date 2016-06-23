@@ -3,11 +3,7 @@ using System.Collections;
 
 public class deathscript : MonoBehaviour {
 
-    public GameObject meuf;
 
-    
-        
-    
 
     void OnTriggerEnter(Collider hit)
     {

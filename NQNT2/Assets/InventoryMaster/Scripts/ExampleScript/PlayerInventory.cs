@@ -23,10 +23,10 @@ public class PlayerInventory : MonoBehaviour
     Image hpImage;
     Image manaImage;
 
-    float maxHealth = 100;
-    float maxMana = 100;
+    public float maxHealth = 100;
+    public float maxMana = 100;
     float maxDamage = 0;
-    float maxArmor = 0;
+    public float maxArmor = 0;
 
     public static float currentHealth = 50;
     public static float currentMana = 50;
@@ -35,7 +35,7 @@ public class PlayerInventory : MonoBehaviour
 
     public static int currentMoney = 0;
 
-    bool regenMana = true;
+    public static bool regenMana = true;
 
     int normalSize = 3;
 
@@ -166,6 +166,7 @@ public class PlayerInventory : MonoBehaviour
 
     void Start()
     {
+        regenMana = true;
         currentHealth = maxHealth;
         currentMana = maxMana;
         if (HPMANACanvas != null)

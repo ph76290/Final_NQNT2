@@ -4,7 +4,7 @@ using System.Collections;
 public class Bad_guy : MonoBehaviour {
 
     float distance = 0f;
-    public Transform Target;
+    private GameObject Target1;
     //Vector3 pos = GameObject.Find("Personnage").transform.position;
     float lookAtDistance = 25.0f;
     float chaseRange = 15.0f;
@@ -18,7 +18,7 @@ public class Bad_guy : MonoBehaviour {
     public int Damage = 20;
     private float attackTime;
     public CharacterController controller;
-    float gravity = 20.0f;
+    float gravity = 10.0f;
     private Vector3 moveDirection = Vector3.zero;
     Animation anim;
     float cpt = 0.5f;
@@ -37,8 +37,16 @@ public class Bad_guy : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        moveDirection.y = 0f;
-        distance = Vector3.Distance(Target.position, transform.position);
+        if (ChangeCharacter.c == false)
+        {
+            Target1 = GameObject.Find("knight");
+        }
+        else if (ChangeCharacter.c)
+        {
+            Target1 = GameObject.Find("Personnage");
+        }
+        //moveDirection.y = 0f;
+        distance = Vector3.Distance(Target1.transform.position, transform.position);
         if (distance < lookAtDistance)
         {
             lookAt();
@@ -61,8 +69,8 @@ public class Bad_guy : MonoBehaviour {
 
     void lookAt()
     {
-        var rotation = Quaternion.LookRotation(Target.position - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * Damping);
+            var rotation = Quaternion.LookRotation(Target1.transform.position - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * Damping); 
     }
     void chase()
     {
@@ -71,7 +79,7 @@ public class Bad_guy : MonoBehaviour {
         moveDirection = transform.forward;
         moveDirection *= moveSpeed;
 
-        //moveDirection.y -= gravity * Time.deltaTime;
+        moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
     }
     void attack()
@@ -86,7 +94,11 @@ public class Bad_guy : MonoBehaviour {
             anim.Play("attack");
             if (cpt<=0 || n==0)//&& weapon.gameObject.name == "Health")
             {
-                PlayerInventory.currentHealth -= Damage;
+                if (Target1.name == "Personnage")
+                    PlayerInventory.currentHealth -= Damage;
+                else
+                    PlayerInventory2.currentHealth -= Damage;
+
                 n++;
             }
             else

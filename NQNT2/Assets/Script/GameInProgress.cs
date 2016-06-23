@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class GameInProgress : MonoBehaviour {
 
-    public GameObject chest;
 
     public static bool b1 = false;
     static bool b2 = false;

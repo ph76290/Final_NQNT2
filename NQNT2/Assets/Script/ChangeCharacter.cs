@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class ChangeCharacter : MonoBehaviour {
-
+    bool SwitchUP;
+    public static bool c;
     bool showGUI = false;
     public GameObject character1;
     public GameObject character2;
@@ -16,13 +17,15 @@ public class ChangeCharacter : MonoBehaviour {
         /*monScript = character2.GetComponent<character_move>();
         monScript.enabled = false;*/
         character2.SetActive(false);
+        c = true;
+        SwitchUP = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        if (Input.GetKeyDown("n"))
+        if (SwitchUP && Input.GetKeyDown("n"))
         {
             showGUI = !showGUI;
         }
@@ -33,8 +36,7 @@ public class ChangeCharacter : MonoBehaviour {
 
         if (showGUI == true)
         {
-
-            if (GUI.Button(new Rect(10, 160, 50, 50), "1"))
+            if (SwitchUP && GUI.Button(new Rect(10, 160, 50, 50), "1") && SwitchUP)
             {
                 /*camera1.SetActive(true);
                 camera2.SetActive(false);
@@ -42,11 +44,16 @@ public class ChangeCharacter : MonoBehaviour {
                 monScript.enabled = true;
                 monScript = character2.GetComponent<character_move>();
                 monScript.enabled = false;*/
+                SwitchUP = false;
+                c = true;
+                PlayerInventory.regenMana = true;
                 character1.SetActive(true);
+                character1.transform.position = character2.transform.position;
                 character2.SetActive(false);
+                StartCoroutine(switchDelay());
             }
 
-            if (GUI.Button(new Rect(10, 210, 50, 50), "2"))
+            if (SwitchUP && GUI.Button(new Rect(10, 210, 50, 50), "2"))
             {
                 /*camera1.SetActive(false);
                 camera2.SetActive(true);
@@ -54,11 +61,21 @@ public class ChangeCharacter : MonoBehaviour {
                 monScript.enabled = false;
                 monScript = character2.GetComponent<character_move>();
                 monScript.enabled = true;*/
+                SwitchUP = false;
+                c = false;
                 character1.SetActive(false);
+                character2.transform.position = character1.transform.position;
                 character2.SetActive(true);
+                StartCoroutine(switchDelay());
             }
 
         }
+    }
+    IEnumerator switchDelay()
+    {
+        SwitchUP = false;
+        yield return new WaitForSeconds(3);
+        SwitchUP = true;
     }
 
 }
