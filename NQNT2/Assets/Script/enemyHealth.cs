@@ -3,13 +3,13 @@ using System.Collections;
 
 public class enemyHealth : MonoBehaviour {
 
+    public static bool move = true;
     bool b = false;
     int enemyhealth;
     private enemyHealth enemyHealthScript;
     public static GameObject currentlySelected;
     private Vector3 mouseDownPoint;
     private static bool selecting;
-
     RaycastHit hit;
     private float raycastLength = 500f;
     private MouseSelection mouse;
@@ -29,8 +29,11 @@ public class enemyHealth : MonoBehaviour {
     }
     void ApplyDamage(int TheDamage)
     {
+        move = false;
+        StartCoroutine(Move());
+        anim.Play("gethit");
         health -= TheDamage;
-        Debug.Log(health);
+        Debug.Log("aie");
         copyHealth = health;
         if (health <= 0)
         {
@@ -82,5 +85,11 @@ public class enemyHealth : MonoBehaviour {
     {
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
+    }
+
+    IEnumerator Move()
+    {
+        yield return new WaitForSeconds(2);
+        move = true;
     }
 }

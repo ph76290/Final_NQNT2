@@ -81,7 +81,7 @@ ModelImporter:
     400070: Mutant:Spine1
     400072: Mutant:Spine2
     400074: //RootNode
-    7400000: receive_punch
+    7400000: gethit
     9500000: //RootNode
     11100000: //RootNode
   materials:
@@ -106,7 +106,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: receive_punch
+      name: gethit
       takeName: mixamo.com
       firstFrame: 0
       lastFrame: 39

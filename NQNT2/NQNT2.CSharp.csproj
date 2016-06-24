@@ -72,9 +72,12 @@
     <Compile Include="Assets\2d_TDP\Script\DialogBubble.cs" />
     <Compile Include="Assets\2d_TDP\Script\PixelBubble.cs" />
     <Compile Include="Assets\2d_TDP\Script\SwitchScene.cs" />
+    <Compile Include="Assets\AShopExport\ShowAnimation.cs" />
+    <Compile Include="Assets\AShopExport\UIObjRotation.cs" />
     <Compile Include="Assets\Boss1.cs" />
     <Compile Include="Assets\Campfire\Script\FireLightScript.cs" />
     <Compile Include="Assets\CooldowmSpell.cs" />
+    <Compile Include="Assets\Gate.cs" />
     <Compile Include="Assets\Graphisme\NatureStarterKit\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
     <Compile Include="Assets\Graphisme\NatureStarterKit\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
     <Compile Include="Assets\Graphisme\NatureStarterKit\Standard Assets\Effects\ImageEffects\Scripts\BloomAndFlares.cs" />
@@ -204,6 +207,7 @@
     <Compile Include="Assets\UnityChan\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\UnityChan\Scripts\ThirdPersonCamera.cs" />
     <Compile Include="Assets\UnityChan\Scripts\UnityChanControlScriptWithRgidBody.cs" />
+    <Compile Include="Assets\enemyHealth_mutant.cs" />
     <Compile Include="Assets\script_cinematic.cs" />
   </ItemGroup>
   <ItemGroup>

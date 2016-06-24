@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Resources;
+using System;
 
 public class Bad_guy : MonoBehaviour {
 
@@ -14,15 +16,14 @@ public class Bad_guy : MonoBehaviour {
     float Damping = 6.0f;
     int attackRepeatTime = 3;
     public Collider weapon;
-
-    public int Damage = 20;
+    private int Damage = Convert.ToInt32(400 / PlayerInventory.currentArmor);
+    private int Damage2 = Convert.ToInt32(400 / PlayerInventory2.currentArmor);
     private float attackTime;
     public CharacterController controller;
     float gravity = 10.0f;
     private Vector3 moveDirection = Vector3.zero;
     Animation anim;
     float cpt = 0.5f;
-
 
 
 
@@ -55,11 +56,11 @@ public class Bad_guy : MonoBehaviour {
         {
             attack();
         }
-        else if (distance < chaseRange && distance > maxRange)
+        else if (distance < chaseRange && distance > maxRange && enemyHealth.move)
         {
             chase();
         }
-        else
+        else if (enemyHealth.move)
             anim.Play("waitingforbattle");
 
         //agent = GetComponent<NavMeshAgent>();
@@ -95,9 +96,14 @@ public class Bad_guy : MonoBehaviour {
             if (cpt<=0 || n==0)//&& weapon.gameObject.name == "Health")
             {
                 if (Target1.name == "Personnage")
+                {
                     PlayerInventory.currentHealth -= Damage;
+                }  
                 else
-                    PlayerInventory2.currentHealth -= Damage;
+                {
+                    PlayerInventory2.currentHealth -= Damage2;
+                }
+                    
 
                 n++;
             }

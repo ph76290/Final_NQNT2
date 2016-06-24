@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Boss1 : MonoBehaviour
 {
-
+    int nb = 0;
     float distance = 0f;
     private GameObject Target1;
     //Vector3 pos = GameObject.Find("Personnage").transform.position;
@@ -56,11 +56,11 @@ public class Boss1 : MonoBehaviour
         {
             attack();
         }
-        else if (distance < chaseRange && distance > maxRange)
+        else if (distance < chaseRange && distance > maxRange && enemyHealth_mutant.move)
         {
             chase();
         }
-        else
+        else if(enemyHealth_mutant.move)
             anim.Play("idle");
 
         //agent = GetComponent<NavMeshAgent>();
@@ -88,19 +88,33 @@ public class Boss1 : MonoBehaviour
         int n = 0;
         if (Time.time > attackTime)
         {
+            
             foreach (AnimationState state in anim)
             {
                 state.speed = 1.2f;
             }
-            anim.Play("attack");
             if (cpt <= 0 || n == 0)//&& weapon.gameObject.name == "Health")
             {
-                if (Target1.name == "Personnage")
-                    PlayerInventory.currentHealth -= Damage;
+                if (nb % 4 != 0)
+                {
+                    nb++;
+                    anim.Play("attack");
+                    if (Target1.name == "Personnage")
+                        PlayerInventory.currentHealth -= (Damage * 20 / PlayerInventory.currentArmor);
+                    else
+                        PlayerInventory2.currentHealth -= (Damage * 20 / PlayerInventory2.currentArmor);
+                }
                 else
-                    PlayerInventory2.currentHealth -= Damage;
-
+                {
+                    nb++;
+                    anim.Play("kicking");
+                    if (Target1.name == "Personnage")
+                        PlayerInventory.currentHealth -= ((2 * Damage) * 20 / PlayerInventory.currentArmor);
+                    else
+                        PlayerInventory2.currentHealth -= ((2 * Damage) * 20 / PlayerInventory2.currentArmor);
+                }
                 n++;
+                
             }
             else
             {

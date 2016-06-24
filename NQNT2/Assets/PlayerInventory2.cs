@@ -26,12 +26,12 @@ public class PlayerInventory2 : MonoBehaviour
     public float maxHealth = 100;
     public float maxMana = 100;
     float maxDamage = 0;
-    public float maxArmor = 0;
+    public float maxArmor = 1000000;
 
     public static float currentHealth = 50;
     public static float currentMana = 50;
     float currentDamage = 0;
-    float currentArmor = 0;
+    public static float currentArmor = 30;
 
     public static bool regenMana = true;
 
