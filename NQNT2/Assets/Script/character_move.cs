@@ -4,9 +4,9 @@ using System.Collections;
 public class character_move : MonoBehaviour {
 
 
-	private int speed = 2;
+	private int speed = 3;
 	public int speedrun;
-    private int jump = 7;
+    private int jump = 6;
     public int gravit;
     CharacterController player;
     private Vector3 moveDirection = Vector3.zero;
