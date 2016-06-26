@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class enemyHealth_mutant : MonoBehaviour
+public class enemyHealth_mutant: MonoBehaviour
 {
     public static bool move = true;
     bool b = false;

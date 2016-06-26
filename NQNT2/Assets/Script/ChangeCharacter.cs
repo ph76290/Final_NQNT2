@@ -34,6 +34,10 @@ public class ChangeCharacter : MonoBehaviour {
     void OnGUI()
     {
 
+        if (c)
+            GUI.Box(new Rect(90, 150, 90, 30), "Armor :" + PlayerInventory.currentArmor);
+        else
+            GUI.Box(new Rect(90, 150, 90, 30), "Armor :" + PlayerInventory2.currentArmor);
         if (showGUI == true)
         {
             if (SwitchUP && GUI.Button(new Rect(10, 160, 50, 50), "1") && SwitchUP)

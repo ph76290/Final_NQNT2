@@ -9,6 +9,7 @@ public class Gate : MonoBehaviour {
 	void Start ()
     {
         m = droïd.GetComponent<MoveDroïd>();
+        m.enabled = false;
     }
 	
 	// Update is called once per frame

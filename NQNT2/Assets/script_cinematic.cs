@@ -10,6 +10,7 @@ public class script_cinematic : MonoBehaviour {
     public Light l;
     public Light pointLight;
     bool b = false;
+
     // Use this for initialization
     void OnGUI ()
     {
@@ -18,7 +19,7 @@ public class script_cinematic : MonoBehaviour {
         else if (n == 1)
             GUI.Box(new Rect(400, 300, 700, 30), "Warrior : I don't know I was in my house and I don't remember how i have arrived here !");
         else if (n == 2)
-        { 
+        {
             GUI.Box(new Rect(900, 300, 700, 30), "Mage : It's really weird, this place looks like mystic !");
             anim.enabled = true;
             anim.speed = 0.3f;
@@ -40,7 +41,9 @@ public class script_cinematic : MonoBehaviour {
         else if (n == 10)
             GUI.Box(new Rect(400, 300, 700, 30), "Warrior : Ok good, ask him if he knows how we can leave this place and mainly back home !!");
         else if (n == 11)
+        {
             GUI.Box(new Rect(900, 300, 700, 30), "Mage : zzd zsevs zezz cheh ?? dzdz");
+        }
         else if (n == 12)
         {
             GUI.Box(new Rect(900, 250, 700, 30), "Mage : Heeeeeeelp meee ahahhhah");
@@ -48,7 +51,10 @@ public class script_cinematic : MonoBehaviour {
             GUI.Box(new Rect(400, 500, 700, 30), "Droid : zzzzzzzzzzzznncejndzjjzdjzj dzdz !");
         }
         else if (n == 14)
+        {
             GUI.Box(new Rect(900, 300, 700, 30), "Mage : What was that ?");
+        }
+            
         else if (n == 15)
             GUI.Box(new Rect(400, 300, 700, 30), "Warrior : I don't know but it was very frightening !");
         else if (n == 16)
@@ -61,9 +67,17 @@ public class script_cinematic : MonoBehaviour {
 
     }
 	
+    void Start()
+    {
+        p.Pause();
+    }
 	// Update is called once per frame
 	void Update ()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            n++;    
+        }
         if (b2)
         {
             b2 = false;

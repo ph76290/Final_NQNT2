@@ -19,7 +19,7 @@ public class TimeSpell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameInProgress.b1)
+        if (GameInProgress.b2)
         {
             if (Input.GetKeyDown("t") && PlayerInventory.currentMana >= 30 && cooldown)
             {

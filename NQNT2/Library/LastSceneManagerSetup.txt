@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/map soloplayer.unity
+- path: "Assets/Cin\xE9matique 1.unity"
   isLoaded: 1
   isActive: 1

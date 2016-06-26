@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3ad0c8d8c73058642af218e56a27f117
+guid: 9d934f73cdcee0047a9a97eadd561d3c
 timeCreated: 1466034170
 licenseType: Free
 ModelImporter:
@@ -98,7 +98,13 @@ ModelImporter:
     resampleRotations: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    animationImportErrors: 
+    animationImportErrors: '
+
+      Imported file ''Mutant'' conversion failed: Required human bone ''LeftHand''
+      not found
+
+
+'
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0

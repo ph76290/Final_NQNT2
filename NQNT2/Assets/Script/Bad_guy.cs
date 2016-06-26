@@ -97,11 +97,11 @@ public class Bad_guy : MonoBehaviour {
             {
                 if (Target1.name == "Personnage")
                 {
-                    PlayerInventory.currentHealth -= Damage;
+                    PlayerInventory.currentHealth -= Convert.ToInt32(400 / PlayerInventory.currentArmor);
                 }  
                 else
                 {
-                    PlayerInventory2.currentHealth -= Damage2;
+                    PlayerInventory2.currentHealth -= Convert.ToInt32(400 / PlayerInventory2.currentArmor);
                 }
                     
 

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Boss1 : MonoBehaviour
 {
@@ -100,18 +101,18 @@ public class Boss1 : MonoBehaviour
                     nb++;
                     anim.Play("attack");
                     if (Target1.name == "Personnage")
-                        PlayerInventory.currentHealth -= (Damage * 20 / PlayerInventory.currentArmor);
+                        PlayerInventory.currentHealth -= Convert.ToInt32(400 / PlayerInventory.currentArmor);
                     else
-                        PlayerInventory2.currentHealth -= (Damage * 20 / PlayerInventory2.currentArmor);
+                        PlayerInventory2.currentHealth -= Convert.ToInt32(400 / PlayerInventory2.currentArmor);
                 }
                 else
                 {
                     nb++;
                     anim.Play("kicking");
                     if (Target1.name == "Personnage")
-                        PlayerInventory.currentHealth -= ((2 * Damage) * 20 / PlayerInventory.currentArmor);
+                        PlayerInventory.currentHealth -= Convert.ToInt32(800 / PlayerInventory.currentArmor);
                     else
-                        PlayerInventory2.currentHealth -= ((2 * Damage) * 20 / PlayerInventory2.currentArmor);
+                        PlayerInventory2.currentHealth -= Convert.ToInt32(800 / PlayerInventory2.currentArmor);
                 }
                 n++;
                 
